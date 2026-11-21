@@ -1,0 +1,326 @@
+[
+ {
+  "numeroControlePNCP": "01000000000100-1-000001/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 1,
+  "objetoCompra": "Aquisição de pneus novos para a frota de veículos leves e caminhões",
+  "valorTotalEstimado": 58400.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-27T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "01000000000100",
+   "razaoSocial": "Órgão de exemplo 1 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Cascavel",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "02000000000100-1-000002/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 2,
+  "objetoCompra": "Registro de preços para gêneros alimentícios destinados à merenda escolar",
+  "valorTotalEstimado": 412300.5,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-03T08:30:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "02000000000100",
+   "razaoSocial": "Órgão de exemplo 2 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Cascavel",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "03000000000100-1-000003/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 3,
+  "objetoCompra": "Contratação de empresa para fornecimento de materiais de limpeza e higiene",
+  "valorTotalEstimado": 31750.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-24T14:00:00",
+  "modalidadeNome": "Dispensa",
+  "orgaoEntidade": {
+   "cnpj": "03000000000100",
+   "razaoSocial": "Órgão de exemplo 3 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Toledo",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "04000000000100-1-000004/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 4,
+  "objetoCompra": "Aquisição de computadores, notebooks e impressoras para as secretarias",
+  "valorTotalEstimado": 189900.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-09T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "04000000000100",
+   "razaoSocial": "Órgão de exemplo 4 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Toledo",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "05000000000100-1-000005/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 5,
+  "objetoCompra": "Aquisição de material de expediente e papelaria",
+  "valorTotalEstimado": 12480.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-23T17:00:00",
+  "modalidadeNome": "Dispensa",
+  "orgaoEntidade": {
+   "cnpj": "05000000000100",
+   "razaoSocial": "Órgão de exemplo 5 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Corbélia",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "06000000000100-1-000006/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 6,
+  "objetoCompra": "Contratação de empresa de engenharia para reforma da unidade básica de saúde",
+  "valorTotalEstimado": 640000.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-15T09:00:00",
+  "modalidadeNome": "Concorrência - Eletrônica",
+  "orgaoEntidade": {
+   "cnpj": "06000000000100",
+   "razaoSocial": "Órgão de exemplo 6 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Cafelândia",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "07000000000100-1-000007/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 7,
+  "objetoCompra": "Aquisição de medicamentos para a farmácia básica municipal",
+  "valorTotalEstimado": 96200.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-01T08:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "07000000000100",
+   "razaoSocial": "Órgão de exemplo 7 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Céu Azul",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "08000000000100-1-000008/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 8,
+  "objetoCompra": "Aquisição de uniformes e camisetas para servidores",
+  "valorTotalEstimado": 22900.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-26T10:00:00",
+  "modalidadeNome": "Dispensa",
+  "orgaoEntidade": {
+   "cnpj": "08000000000100",
+   "razaoSocial": "Órgão de exemplo 8 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Santa Tereza do Oeste",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "09000000000100-1-000009/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 9,
+  "objetoCompra": "Prestação de serviço de manutenção preventiva e corretiva de ar condicionado",
+  "valorTotalEstimado": 47300.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-04T09:30:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "09000000000100",
+   "razaoSocial": "Órgão de exemplo 9 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Medianeira",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "10000000000100-1-000010/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 10,
+  "objetoCompra": "Aquisição de sementes, mudas e adubo para o viveiro municipal",
+  "valorTotalEstimado": 18650.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-30T16:00:00",
+  "modalidadeNome": "Dispensa",
+  "orgaoEntidade": {
+   "cnpj": "10000000000100",
+   "razaoSocial": "Órgão de exemplo 10 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Palotina",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "11000000000100-1-000011/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 11,
+  "objetoCompra": "Aquisição de peças automotivas e lubrificantes para máquinas pesadas",
+  "valorTotalEstimado": 133000.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-11T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "11000000000100",
+   "razaoSocial": "Órgão de exemplo 11 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Assis Chateaubriand",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "12000000000100-1-000012/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 12,
+  "objetoCompra": "Confecção de impressos gráficos e banners para eventos da secretaria de cultura",
+  "valorTotalEstimado": 9800.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-25T12:00:00",
+  "modalidadeNome": "Dispensa",
+  "orgaoEntidade": {
+   "cnpj": "12000000000100",
+   "razaoSocial": "Órgão de exemplo 12 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Nova Aurora",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "13000000000100-1-000013/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 13,
+  "objetoCompra": "Aquisição de mobiliário escolar: carteiras, mesas e armários",
+  "valorTotalEstimado": 274500.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-18T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "13000000000100",
+   "razaoSocial": "Órgão de exemplo 13 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Cascavel",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "14000000000100-1-000014/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 14,
+  "objetoCompra": "Credenciamento de leiloeiro oficial",
+  "valorTotalEstimado": null,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-20T17:00:00",
+  "modalidadeNome": "Credenciamento",
+  "orgaoEntidade": {
+   "cnpj": "14000000000100",
+   "razaoSocial": "Órgão de exemplo 14 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Guaraniaçu",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "15000000000100-1-000015/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 15,
+  "objetoCompra": "Aquisição de pneus (fora da região, deve ser descartado)",
+  "valorTotalEstimado": 80000.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-02T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "15000000000100",
+   "razaoSocial": "Órgão de exemplo 15 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Curitiba",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "16000000000100-1-000016/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 16,
+  "objetoCompra": "Aquisição de gêneros alimentícios (homônima no Ceará, deve ser descartado)",
+  "valorTotalEstimado": 50000.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-12-02T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "16000000000100",
+   "razaoSocial": "Órgão de exemplo 16 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Cascavel",
+   "ufSigla": "CE"
+  }
+ },
+ {
+  "numeroControlePNCP": "17000000000100-1-000017/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 17,
+  "objetoCompra": "Aquisição de material de limpeza (prazo vencido, deve ser descartado)",
+  "valorTotalEstimado": 15000.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-18T09:00:00",
+  "modalidadeNome": "Dispensa",
+  "orgaoEntidade": {
+   "cnpj": "17000000000100",
+   "razaoSocial": "Órgão de exemplo 17 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Toledo",
+   "ufSigla": "PR"
+  }
+ },
+ {
+  "numeroControlePNCP": "01000000000100-1-000001/2026",
+  "anoCompra": 2026,
+  "sequencialCompra": 1,
+  "objetoCompra": "Aquisição de pneus novos para a frota de veículos leves e caminhões",
+  "valorTotalEstimado": 58400.0,
+  "dataPublicacaoPncp": "2026-11-17T10:00:00",
+  "dataEncerramentoProposta": "2026-11-27T09:00:00",
+  "modalidadeNome": "Pregão - Eletrônico",
+  "orgaoEntidade": {
+   "cnpj": "01000000000100",
+   "razaoSocial": "Órgão de exemplo 1 (fictício)"
+  },
+  "unidadeOrgao": {
+   "municipioNome": "Cascavel",
+   "ufSigla": "PR"
+  }
+ }
+]

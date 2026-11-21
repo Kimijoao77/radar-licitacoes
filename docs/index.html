@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Radar de Licitações Oeste PR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Plano: ferramenta de triagem. Resumo no topo, filtros no meio, lista densa
+   de compras ordenada por prazo; a cor só aparece para prazo e para o filtro ativo. */
+:root {
+  --fundo: #f3f5f8;
+  --painel: #ffffff;
+  --tinta: #131a26;
+  --tinta-2: #556072;
+  --linha: #d9dee7;
+  --destaque: #1d4ed8;
+  --destaque-fraco: #e3ebfd;
+  --urgente: #b42318;
+  --urgente-fraco: #fde8e5;
+  --breve: #9a5b00;
+  --breve-fraco: #fdf0d3;
+  --aviso-fundo: #fff4c2;
+  --aviso-tinta: #4d3b00;
+  --bolha: #e2f7cf;
+  --bolha-tinta: #17240f;
+  --titulo: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --corpo: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --fundo: #0e131c; --painel: #171e2a; --tinta: #e9edf4; --tinta-2: #9aa6b8;
+    --linha: #2a3445; --destaque: #8fb0ff; --destaque-fraco: #1c2a4d;
+    --urgente: #ff9c8f; --urgente-fraco: #48201c; --breve: #f2c265; --breve-fraco: #40300f;
+    --aviso-fundo: #4a3c08; --aviso-tinta: #ffeeb0; --bolha: #1f3a22; --bolha-tinta: #e3f5dd;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --fundo: #0e131c; --painel: #171e2a; --tinta: #e9edf4; --tinta-2: #9aa6b8;
+  --linha: #2a3445; --destaque: #8fb0ff; --destaque-fraco: #1c2a4d;
+  --urgente: #ff9c8f; --urgente-fraco: #48201c; --breve: #f2c265; --breve-fraco: #40300f;
+  --aviso-fundo: #4a3c08; --aviso-tinta: #ffeeb0; --bolha: #1f3a22; --bolha-tinta: #e3f5dd;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--fundo); color: var(--tinta);
+  font: 400 15px/1.5 var(--corpo);
+}
+.pagina { max-width: 1040px; margin: 0 auto; padding: 28px 20px 56px; display: grid; gap: 22px; }
+h1, h2 { font-family: var(--titulo); text-wrap: balance; margin: 0; }
+h1 { font-size: 30px; line-height: 1.1; letter-spacing: -0.01em; }
+h2 { font-size: 17px; }
+.sub { color: var(--tinta-2); margin: 6px 0 0; max-width: 62ch; }
+.num { font-variant-numeric: tabular-nums; }
+
+.faixa-exemplo {
+  background: var(--aviso-fundo); color: var(--aviso-tinta);
+  border-radius: 8px; padding: 12px 14px; font-weight: 500;
+}
+.faixa-exemplo strong { font-weight: 600; }
+
+.resumo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 16px; align-items: start; }
+.painel { background: var(--painel); border: 1px solid var(--linha); border-radius: 10px; padding: 18px; }
+.numeros { display: grid; gap: 14px; align-content: start; }
+.numero b { display: block; font: 700 34px/1 var(--titulo); }
+.numero span { color: var(--tinta-2); font-size: 13.5px; }
+.numero.urg b { color: var(--urgente); }
+
+.ramos { display: grid; gap: 4px; margin-top: 12px; }
+.ramo {
+  display: grid; grid-template-columns: minmax(0, 11.5em) 1fr 2.2em; align-items: center; gap: 10px;
+  background: none; border: 0; padding: 5px 6px; border-radius: 6px; cursor: pointer;
+  font: inherit; color: inherit; text-align: left;
+}
+.ramo:hover { background: var(--destaque-fraco); }
+.ramo:focus-visible, .campo:focus-visible, .botao:focus-visible, a:focus-visible {
+  outline: 2px solid var(--destaque); outline-offset: 2px;
+}
+.ramo[aria-pressed="true"] { background: var(--destaque-fraco); font-weight: 600; }
+.ramo .nome { overflow-wrap: anywhere; }
+.ramo .trilho { height: 8px; border-radius: 4px; background: var(--linha); overflow: hidden; }
+.ramo .barra { display: block; height: 100%; background: var(--destaque); border-radius: 4px; }
+.ramo .qtd { text-align: right; }
+
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+.filtros label { display: grid; gap: 4px; font-size: 13px; color: var(--tinta-2); flex: 1 1 180px; }
+.campo {
+  font: inherit; color: var(--tinta); background: var(--painel);
+  border: 1px solid var(--linha); border-radius: 8px; padding: 9px 11px; width: 100%;
+}
+.botao {
+  font: 500 14px var(--corpo); color: var(--destaque); background: var(--painel);
+  border: 1px solid var(--linha); border-radius: 8px; padding: 8px 12px; cursor: pointer;
+  text-decoration: none; display: inline-block;
+}
+.botao:hover { border-color: var(--destaque); }
+.botao.cheio { background: var(--destaque); color: var(--painel); border-color: var(--destaque); }
+.contagem { color: var(--tinta-2); font-size: 13.5px; }
+
+.lista { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.compra {
+  background: var(--painel); border: 1px solid var(--linha); border-radius: 10px;
+  padding: 14px 16px; display: grid; gap: 8px;
+  border-left: 4px solid var(--linha);
+}
+.compra.urg { border-left-color: var(--urgente); }
+.compra.breve { border-left-color: var(--breve); }
+.topo { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: space-between; }
+.onde { font-size: 13.5px; color: var(--tinta-2); overflow-wrap: anywhere; }
+.onde b { color: var(--tinta); font-weight: 600; }
+.prazo {
+  font-size: 12.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+  background: var(--fundo); color: var(--tinta-2); white-space: nowrap;
+}
+.urg .prazo { background: var(--urgente-fraco); color: var(--urgente); }
+.breve .prazo { background: var(--breve-fraco); color: var(--breve); }
+.objeto { margin: 0; font-size: 15.5px; font-weight: 500; overflow-wrap: anywhere; max-width: 78ch; }
+.dados { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; color: var(--tinta-2); }
+.dados b { color: var(--tinta); font-weight: 600; }
+.acoes { display: flex; flex-wrap: wrap; gap: 8px; }
+.aviso { display: grid; gap: 8px; justify-items: start; }
+.aviso[hidden] { display: none; }
+.bolha {
+  background: var(--bolha); color: var(--bolha-tinta); border-radius: 4px 12px 12px 12px;
+  padding: 10px 13px; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 46ch;
+  font-size: 14px; margin: 0; font-family: var(--corpo);
+}
+.vazio { color: var(--tinta-2); padding: 24px 4px; }
+.rodape { color: var(--tinta-2); font-size: 13px; display: grid; gap: 4px; max-width: 78ch; }
+@media (max-width: 720px) {
+  .resumo { grid-template-columns: 1fr; }
+  .numeros { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .numero b { font-size: 26px; }
+  h1 { font-size: 25px; }
+}
+@media (max-width: 420px) { .numeros { grid-template-columns: 1fr; } .ramo { grid-template-columns: minmax(0, 9em) 1fr 2em; } }
+</style>
+</head>
+<body>
+<main class="pagina">
+  <header>
+    <h1>Radar de Licitações Oeste PR</h1>
+    <p class="sub" id="sub">Compras públicas de Cascavel e região que ainda recebem propostas, separadas por ramo.</p>
+  </header>
+
+  <div class="faixa-exemplo" id="faixa" hidden>
+    <strong>Dados de exemplo.</strong> As compras abaixo foram inventadas para mostrar como a página funciona. Nenhuma existe de verdade; os dados reais aparecem depois que o robô rodar pela primeira vez.
+  </div>
+
+  <section class="resumo" aria-label="Resumo">
+    <div class="painel numeros">
+      <div class="numero"><b class="num" id="n-abertas">0</b><span>compras abertas na região</span></div>
+      <div class="numero urg"><b class="num" id="n-semana">0</b><span>encerram nos próximos 7 dias</span></div>
+      <div class="numero"><b class="num" id="n-valor">R$ 0</b><span>em valor estimado somado</span></div>
+    </div>
+    <div class="painel">
+      <h2>Por ramo</h2>
+      <div class="ramos" id="ramos"></div>
+    </div>
+  </section>
+
+  <section class="filtros" aria-label="Filtros">
+    <label for="busca">Buscar no objeto ou no órgão
+      <input class="campo" id="busca" type="search" placeholder="ex.: pneu, merenda, reforma">
+    </label>
+    <label for="cidade">Cidade
+      <select class="campo" id="cidade"><option value="">Todas</option></select>
+    </label>
+    <label for="ordem">Ordenar por
+      <select class="campo" id="ordem">
+        <option value="prazo">Prazo mais curto</option>
+        <option value="valor">Maior valor</option>
+      </select>
+    </label>
+    <button class="botao" id="limpar" type="button">Limpar filtros</button>
+  </section>
+
+  <div class="contagem" id="contagem" aria-live="polite"></div>
+  <ul class="lista" id="lista"></ul>
+
+  <footer class="rodape">
+    <span id="rod-fonte"></span>
+    <span id="rod-coleta"></span>
+    <span>O ramo é escolhido pelas palavras do objeto, então pode errar. Confira sempre o edital antes de decidir.</span>
+  </footer>
+</main>
+
+<script src="dados.js"></script>
+<script>
+(function () {
+  var D = window.DADOS || { itens: [], por_ramo: {}, coleta: {}, exemplo: false };
+  var agora = D.exemplo && D.gerado_em ? new Date(D.gerado_em) : new Date();
+  var estado = { ramo: "", cidade: "", busca: "", ordem: "prazo" };
+  var $ = function (id) { return document.getElementById(id); };
+
+  function el(tag, classe, texto) {
+    var e = document.createElement(tag);
+    if (classe) e.className = classe;
+    if (texto != null) e.textContent = texto;
+    return e;
+  }
+  function semAcento(s) {
+    return (s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+  }
+  function reais(v, curto) {
+    if (v == null) return "não informado";
+    if (curto && v >= 1e6) return "R$ " + (v / 1e6).toLocaleString("pt-BR", { maximumFractionDigits: 2 }) + " mi";
+    if (curto && v >= 1e3) return "R$ " + Math.round(v / 1e3).toLocaleString("pt-BR") + " mil";
+    return v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+  }
+  function dias(item) {
+    if (!item.encerra) return null;
+    return (new Date(item.encerra) - agora) / 864e5;
+  }
+  function textoPrazo(d) {
+    if (d == null) return "sem prazo informado";
+    if (d < 1) return "encerra em menos de 1 dia";
+    var n = Math.floor(d);
+    return "encerra em " + n + (n === 1 ? " dia" : " dias");
+  }
+  function dataCurta(iso) {
+    return new Date(iso).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
+  }
+
+  var abertas = (D.itens || []).filter(function (i) { var d = dias(i); return d == null || d > 0; });
+
+  // ---- resumo
+  $("faixa").hidden = !D.exemplo;
+  $("n-abertas").textContent = abertas.length.toLocaleString("pt-BR");
+  $("n-semana").textContent = abertas.filter(function (i) { var d = dias(i); return d != null && d <= 7; }).length.toLocaleString("pt-BR");
+  $("n-valor").textContent = reais(abertas.reduce(function (s, i) { return s + (i.valor || 0); }, 0), true);
+
+  var porRamo = {};
+  abertas.forEach(function (i) { porRamo[i.ramo] = (porRamo[i.ramo] || 0) + 1; });
+  var ramosOrdenados = Object.keys(porRamo).sort(function (a, b) { return porRamo[b] - porRamo[a] || a.localeCompare(b, "pt-BR"); });
+  var maior = Math.max.apply(null, ramosOrdenados.map(function (r) { return porRamo[r]; }).concat([1]));
+  ramosOrdenados.forEach(function (r) {
+    var b = el("button", "ramo"); b.type = "button"; b.setAttribute("aria-pressed", "false"); b.dataset.ramo = r;
+    b.appendChild(el("span", "nome", r));
+    var trilho = el("span", "trilho"); var barra = el("span", "barra");
+    barra.style.width = (porRamo[r] / maior * 100) + "%"; trilho.appendChild(barra); b.appendChild(trilho);
+    b.appendChild(el("span", "qtd num", String(porRamo[r])));
+    b.addEventListener("click", function () { estado.ramo = estado.ramo === r ? "" : r; desenhar(); });
+    $("ramos").appendChild(b);
+  });
+  if (!ramosOrdenados.length) $("ramos").appendChild(el("p", "vazio", "Nenhuma compra aberta no momento."));
+
+  var cidades = {};
+  abertas.forEach(function (i) { cidades[i.cidade] = 1; });
+  Object.keys(cidades).sort(function (a, b) { return a.localeCompare(b, "pt-BR"); }).forEach(function (c) {
+    var o = el("option", null, c); o.value = c; $("cidade").appendChild(o);
+  });
+
+  // ---- lista
+  function cartao(item) {
+    var d = dias(item);
+    var li = el("li", "compra" + (d != null && d < 4 ? " urg" : d != null && d <= 7 ? " breve" : ""));
+    var topo = el("div", "topo");
+    var onde = el("span", "onde"); onde.appendChild(el("b", null, item.cidade));
+    onde.appendChild(document.createTextNode(" · " + item.orgao));
+    topo.appendChild(onde); topo.appendChild(el("span", "prazo num", textoPrazo(d)));
+    li.appendChild(topo);
+    li.appendChild(el("p", "objeto", item.objeto));
+
+    var dados = el("div", "dados");
+    function dado(rotulo, valor) { var s = el("span"); s.appendChild(document.createTextNode(rotulo + " ")); s.appendChild(el("b", "num", valor)); dados.appendChild(s); }
+    dado("Valor estimado", reais(item.valor));
+    if (item.encerra) dado("Propostas até", dataCurta(item.encerra));
+    if (item.modalidade) dado("Tipo", item.modalidade);
+    dado("Ramo", item.ramo);
+    li.appendChild(dados);
+
+    var acoes = el("div", "acoes");
+    var ver = el("button", "botao", "Ver aviso de WhatsApp"); ver.type = "button"; ver.setAttribute("aria-expanded", "false");
+    acoes.appendChild(ver);
+    if (item.link) {
+      var a = el("a", "botao", "Abrir edital no portal"); a.href = item.link; a.target = "_blank"; a.rel = "noopener";
+      acoes.appendChild(a);
+    }
+    li.appendChild(acoes);
+
+    var aviso = el("div", "aviso"); aviso.hidden = true;
+    aviso.appendChild(el("pre", "bolha", item.mensagem || ""));
+    var copiar = el("button", "botao cheio", "Copiar aviso"); copiar.type = "button";
+    copiar.addEventListener("click", function () {
+      var feito = function (ok) { copiar.textContent = ok ? "Copiado" : "Selecione o texto e copie"; setTimeout(function () { copiar.textContent = "Copiar aviso"; }, 2200); };
+      try { navigator.clipboard.writeText(item.mensagem || "").then(function () { feito(true); }, function () { feito(false); }); }
+      catch (e) { feito(false); }
+    });
+    aviso.appendChild(copiar);
+    li.appendChild(aviso);
+    ver.addEventListener("click", function () {
+      aviso.hidden = !aviso.hidden;
+      ver.setAttribute("aria-expanded", String(!aviso.hidden));
+      ver.textContent = aviso.hidden ? "Ver aviso de WhatsApp" : "Esconder aviso";
+    });
+    return li;
+  }
+
+  function desenhar() {
+    var termo = semAcento(estado.busca.trim());
+    var vistos = abertas.filter(function (i) {
+      if (estado.ramo && i.ramo !== estado.ramo) return false;
+      if (estado.cidade && i.cidade !== estado.cidade) return false;
+      if (termo && semAcento(i.objeto + " " + i.orgao).indexOf(termo) < 0) return false;
+      return true;
+    });
+    vistos.sort(estado.ordem === "valor"
+      ? function (a, b) { return (b.valor || 0) - (a.valor || 0); }
+      : function (a, b) { var x = dias(a), y = dias(b); return (x == null ? 1e9 : x) - (y == null ? 1e9 : y); });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".ramo"), function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.ramo === estado.ramo));
+    });
+    var lista = $("lista"); lista.textContent = "";
+    vistos.forEach(function (i) { lista.appendChild(cartao(i)); });
+    if (!vistos.length) lista.appendChild(el("li", "vazio", abertas.length ? "Nenhuma compra com esses filtros. Limpe os filtros para ver todas." : "Nenhuma compra aberta foi encontrada na última coleta."));
+    $("contagem").textContent = "Mostrando " + vistos.length + " de " + abertas.length + (estado.ramo ? " · ramo: " + estado.ramo : "");
+  }
+
+  $("busca").addEventListener("input", function (e) { estado.busca = e.target.value; desenhar(); });
+  $("cidade").addEventListener("change", function (e) { estado.cidade = e.target.value; desenhar(); });
+  $("ordem").addEventListener("change", function (e) { estado.ordem = e.target.value; desenhar(); });
+  $("limpar").addEventListener("click", function () {
+    estado = { ramo: "", cidade: "", busca: "", ordem: estado.ordem };
+    $("busca").value = ""; $("cidade").value = ""; desenhar();
+  });
+
+  // ---- rodapé
+  var c = D.coleta || {};
+  if (D.gerado_em) $("rod-fonte").textContent = (D.exemplo ? "Exemplo gerado em " : "Atualizado em ") + dataCurta(D.gerado_em) + ". Fonte: " + (D.exemplo ? "registros de teste, não o portal" : D.fonte) + ".";
+  if (c.recebidos != null) $("rod-coleta").textContent = "O robô recebeu " + c.recebidos + " registros e descartou " +
+    ((c.fora_da_regiao || 0) + (c.fora_do_estado || 0)) + " de fora da região, " + (c.prazo_encerrado || 0) + " com prazo vencido e " + (c.repetidos || 0) + " repetidos.";
+  if (!window.DADOS) $("sub").textContent = "Não achei o arquivo dados.js ao lado desta página. Rode o robô (python robo/coletar.py) para gerá-lo.";
+
+  desenhar();
+})();
+</script>
+</body>
+</html>

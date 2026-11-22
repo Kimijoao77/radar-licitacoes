@@ -1,6 +1,6 @@
 window.DADOS = {
  "exemplo": false,
- "gerado_em": "2026-11-21T08:36:05-03:00",
+ "gerado_em": "2026-11-22T14:12:59-03:00",
  "fonte": "PNCP — API de consultas (contratações com propostas abertas)",
  "regiao": {
   "uf": "PR",
@@ -37,14 +37,14 @@ window.DADOS = {
   "chamadas": 61,
   "erros": [],
   "modo": "todas as modalidades de uma vez",
-  "recebidos": 3031,
+  "recebidos": 3043,
   "fora_do_estado": 0,
-  "fora_da_regiao": 2758,
+  "fora_da_regiao": 2768,
   "prazo_encerrado": 0,
   "repetidos": 0
  },
  "por_ramo": {
-  "Construção e obras": 55,
+  "Construção e obras": 57,
   "Outros": 44,
   "Saúde": 37,
   "Serviços gerais": 34,
@@ -3880,6 +3880,34 @@ window.DADOS = {
    "ramo": "Outros",
    "link": "https://pncp.gov.br/app/editais/76208867000107/2026/5",
    "mensagem": "🔔 *Nova oportunidade para você*\nMUNICIPIO DE CASCAVEL (Cascavel/PR)\n\nContratação de serviços para tratamento e acolhimento de dependentes químicos, visando garantir atendimento de qualidade aos beneficiários do Programa Vida Nova.\nValor estimado: R$ 560.000,00\nPropostas até: 19/01/2027 às 00h00\nTipo: Credenciamento\n\nEdital: https://pncp.gov.br/app/editais/76208867000107/2026/5"
+  },
+  {
+   "id": "76208867000107-1-000686/2026",
+   "orgao": "MUNICIPIO DE CASCAVEL",
+   "cidade": "Cascavel",
+   "uf": "PR",
+   "objeto": "Elaboração de projetos em metodologia BIM para execução das obras da Sede da Secretaria de Meio Ambiente e Recinto de Animais no Zoológico Municipal",
+   "modalidade": "Concorrência - Eletrônica",
+   "valor": 411398.02,
+   "encerra": "2027-01-21T09:00:00-03:00",
+   "publicado": "2026-11-18T13:28:27-03:00",
+   "ramo": "Construção e obras",
+   "link": "https://pncp.gov.br/app/editais/76208867000107/2026/686",
+   "mensagem": "🔔 *Nova oportunidade para você*\nMUNICIPIO DE CASCAVEL (Cascavel/PR)\n\nElaboração de projetos em metodologia BIM para execução das obras da Sede da Secretaria de Meio Ambiente e Recinto de Animais no Zoológico Municipal\nValor estimado: R$ 411.398,02\nPropostas até: 21/01/2027 às 09h00\nTipo: Concorrência - Eletrônica\n\nEdital: https://pncp.gov.br/app/editais/76208867000107/2026/686"
+  },
+  {
+   "id": "76208867000107-1-000689/2026",
+   "orgao": "MUNICIPIO DE CASCAVEL",
+   "cidade": "Cascavel",
+   "uf": "PR",
+   "objeto": "Elaboração de Projetos Executivos elaborado em metodologia BIM (Modelagem da Informação da Construção), incluindo estudos técnicos, levantamentos, memoriais descritivos, especificações técnicas, planilhas orçamentárias, cronogramas físico-financeiros, compatibilização de disciplinas, emissão de ART/RRT e demais documentos necessários à futura execução das obras da Construção da sede da Secretaria Municipal de Meio Ambiente, assim como de um Recinto acessível de Animais junto ao Zoológico Municipal",
+   "modalidade": "Concorrência - Eletrônica",
+   "valor": 411398.02,
+   "encerra": "2027-01-21T09:00:00-03:00",
+   "publicado": "2026-11-19T08:19:36-03:00",
+   "ramo": "Construção e obras",
+   "link": "https://pncp.gov.br/app/editais/76208867000107/2026/689",
+   "mensagem": "🔔 *Nova oportunidade para você*\nMUNICIPIO DE CASCAVEL (Cascavel/PR)\n\nElaboração de Projetos Executivos elaborado em metodologia BIM (Modelagem da Informação da Construção), incluindo estudos técnicos, levantamentos, memoriais descritivos, especificações técnicas, planilhas orçamentárias, cronogramas físico-financeiros, compatibilização de discipli…\nValor estimado: R$ 411.398,02\nPropostas até: 21/01/2027 às 09h00\nTipo: Concorrência - Eletrônica\n\nEdital: https://pncp.gov.br/app/editais/76208867000107/2026/689"
   }
  ]
 };
